@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns   = "http://www.w3.org/ns/widgets"
+    xmlns:gap   = "http://phonegap.com/ns/1.0"
+    id          = "tourmap"
+    versionCode = "12"
+    version     = "1.2" >
+
+  <platform name="android"> 
+	  <allow-intent href="market:*" /> 
+	  <preference name="android-minSdkVersion" value="12" /> 
+	  <preference name="android-targetSdkVersion" value="26" /> 
+  </platform>	
+  
+  <name>TourMap</name>
+  <description>
+      TourMap - my first app
+  </description>
+  <author>Piotr Z</author>
+</widget>
