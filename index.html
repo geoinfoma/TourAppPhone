@@ -1,179 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="lib/MyTourApp/css/onsenui.css">
-  <link rel="stylesheet" href="lib/MyTourApp/css/onsen-css-components.css">     
-  <script src="lib/MyTourApp/js/onsenui.js"></script>
+	<meta charset="UTF-8">
+  	<link rel="stylesheet" href="lib/MyTourApp/css/onsenui.css">
+  	<link rel="stylesheet" href="lib/MyTourApp/css/onsen-css-components.css">     
+  	<script src="lib/MyTourApp/js/onsenui.js"></script>
 </head>
 <body>
+	<ons-splitter>
+		<ons-splitter-side id="menu" side="left" width="150px" collapse="" swipeable="">
+    		<ons-page>
+      			<ons-list>
+        			<ons-list-item onclick="fn.load('home.html')" tappable="">
+        				<ons-button onclick="showModal()">
+          					Home
+        				</ons-buton>
+        			</ons-list-item>
+        			<ons-list-item onclick="fn.load('add.html')" tappable="">
+        				<ons-button onclick="showModal()">
+          					Add item
+          				</ons-buton>
+        			</ons-list-item>
+					<ons-list-item onclick="fn.load('map.html')" tappable="">
+						<ons-button onclick="showModal()">
+          					Map
+        				</ons-buton>
+        			</ons-list-item>
+		 			<ons-list-item onclick="fn.load('about.html')" tappable="">	
+		 				<ons-button onclick="showModal()">
+          					About App
+        				</ons-buton>
+        			</ons-list-item>
+         		</ons-list>
+    		</ons-page>
+  		</ons-splitter-side>
+  		<ons-splitter-content id="content" page="home.html"></ons-splitter-content>
+	</ons-splitter>
 
-  <ons-splitter>
-  <ons-splitter-side id="menu" side="left" width="150px" collapse="" swipeable="">
-    <ons-page>
-      <ons-list>
-        <ons-list-item onclick="fn.load('home.html')" tappable=""><ons-button onclick="showModal()">
-          Home
-        </ons-buton></ons-list-item>
-        <ons-list-item onclick="fn.load('add.html')" tappable=""><ons-button onclick="showModal()">
-          Add item
-        </ons-list-item>
-		<ons-list-item onclick="fn.load('map.html')" tappable=""><ons-button onclick="showModal()">
-          Map
-        </ons-list-item>
-		 <ons-list-item onclick="fn.load('about.html')" tappable=""><ons-button onclick="showModal()">
-          About App
-        </ons-list-item>
-       
-
-  
-      </ons-list>
-    </ons-page>
-  </ons-splitter-side>
-  <ons-splitter-content id="content" page="home.html"></ons-splitter-content>
-</ons-splitter>
-
- 
-
-<ons-template id="home.html">
-  <ons-page id="home">
-    <ons-toolbar>
-        <div class="left">
-           <ons-toolbar-button onclick="fn.open()">
-              <ons-icon icon="md-menu"></ons-icon>
-           </ons-toolbar-button>
-         </div>
-	    <div class="center">
-           List of trip locations
-        </div>
-	 </ons-toolbar>
-   <ons-list id="triplist">
-       <ons-list-item>Item A</ons-list-item>
-       <ons-list-item>Item B</ons-list-item>
+ <ons-template id="home.html">
+  	<ons-page id="home">
+    	<ons-toolbar>
+        	<div class="left">
+           		<ons-toolbar-button onclick="fn.open()">
+              		<ons-icon icon="md-menu"></ons-icon>
+           		</ons-toolbar-button>
+         	</div>
+	    	<div class="center">
+           		List of trip locations
+        	</div>
+	 	</ons-toolbar>
+   	<ons-list id="triplist">
+    	<ons-list-item>Item A</ons-list-item>
+       	<ons-list-item>Item B</ons-list-item>
     </ons-list>
     <ons-fab position="bottom right" onclick="fn.load('add.html')">
     	<ons-icon icon="md-plus"></ons-icon>
   	</ons-fab>
   	
-  	
-  
-
-  <ons-speed-dial position="bottom left" direction="up">
-    <ons-fab>
-      <ons-icon icon="md-share"></ons-icon>
-    </ons-fab>
-    <ons-speed-dial-item>
-      <ons-icon icon="md-twitter" onclick="window.open('http://twitter.com', '_system', 'location=yes'); return false;"></ons-icon>
-    </ons-speed-dial-item>
-    <ons-speed-dial-item>
-      <ons-icon icon="md-facebook" onclick="window.open('http://facebook.com', '_system', 'location=yes'); return false;"></ons-icon>
-    </ons-speed-dial-item>
-    <ons-speed-dial-item>
-      <ons-icon icon="md-google-plus" onclick="window.open('http://aboutme.google.com/', '_system', 'location=yes'); return false;"></ons-icon>
-    </ons-speed-dial-item>
-  </ons-speed-dial>
-  	
-  	
-  </ons-page>
+ 	<ons-speed-dial position="bottom left" direction="up">
+    	<ons-fab>
+      		<ons-icon icon="md-share"></ons-icon>
+    	</ons-fab>
+    	<ons-speed-dial-item>
+      		<ons-icon icon="md-twitter" onclick="window.location.href='https://mobile.twitter.com/' "></ons-icon>
+    	</ons-speed-dial-item>
+    	<ons-speed-dial-item>
+      		<ons-icon icon="md-facebook" onclick="window.location.href='https://m.facebook.com/' "></ons-icon>
+    	</ons-speed-dial-item>
+    	<ons-speed-dial-item>
+      		<ons-icon icon="md-google-plus" onclick="window.location.href='https://www.google.pl' "></ons-icon>
+    	</ons-speed-dial-item>
+  	</ons-speed-dial>
+    </ons-page>
 </ons-template>
   
 <ons-template id="add.html">
-  <ons-page>
-    <ons-toolbar>
-      <div class="left">
-        <ons-toolbar-button onclick="fn.open()">
-          <ons-icon icon="md-menu"></ons-icon>
-        </ons-toolbar-button>
-      </div>
-      <div class="center">
-         Add your travel places
-      </div>
-	</ons-toolbar>
-	
-	<div style="text-align: center; margin-top: 30px;">
-	<p><ons-input id="item" style="width: 90%; background-color: #fafafa;"></ons-input></p>
-    <p style="margin-top: 30px;">
-       <ons-button onclick="addItem()">Add your travel place
-       </ons-button>
-    </p>
-    </div>
-    
-   
-  </ons-page>
+  	<ons-page>
+    	<ons-toolbar>
+      		<div class="left">
+        		<ons-toolbar-button onclick="fn.open()">
+          			<ons-icon icon="md-menu"></ons-icon>
+        		</ons-toolbar-button>
+      		</div>
+      		<div class="center">
+         		Add your travel places
+      		</div>
+		</ons-toolbar>
+		<div style="text-align: center; margin-top: 30px;">
+			<p><ons-input id="item" style="width: 90%; background-color: #fafafa;"></ons-input></p>
+    		<p style="margin-top: 30px;">
+       			<ons-button onclick="addItem()">Add your travel place</ons-button>
+    		</p>
+    	</div>
+	</ons-page>
 </ons-template>
 
 <ons-template id="about.html">
-  <ons-page>
-    <ons-toolbar id="toolbar">
-       <div class="left">
-       <ons-toolbar-button onclick="fn.open()">
-          <ons-icon icon="md-menu"></ons-icon>
-       </ons-toolbar-button>
-       </div>
-       <div class="center">
-           About app
-       </div>
-      </ons-toolbar>
+  	<ons-page>
+    	<ons-toolbar id="toolbar">
+       		<div class="left">
+       			<ons-toolbar-button onclick="fn.open()">
+          			<ons-icon icon="md-menu"></ons-icon>
+       			</ons-toolbar-button>
+       		</div>
+       		<div class="center">
+           		About app
+       		</div>
+      	</ons-toolbar>
        
        <div style="text-align: left; margin-top: 30px; margin-left: 10px; margin-right: 10px" >
-	   	<p style="color: dark-grey">The application contains a list of possible places to organize tourist trips.</br>
-	   	If you want, you can easily add or remove them.</br>
-	   	In the future, we will increase its functionality with a button that will inform us about your suggestions!</br>
-	   	We will also send you our suggestions so that you have more and more choice</br></br>
-	   <center><b></b>Have a nice use!</b></center></br></p>
-	   </br>
-	   <p style="color: dark-grey">If you want to know more about my inerests, please visit my website!</p>
-	   <p align="center"; style="margin-top: 30px;">
-		<ons-button onclick="window.open('http://planeta.bo.pl', '_system', 'location=yes'); return false;">Visit my website!</ons-button></p>
-       </br>
-       <p style="color: dark-grey">If you want to go to the main page, click the buton below: </p>
-       <p align="center"; style="margin-top: 30px;"><ons-button onclick="fn.load('home.html')">Back to home!</ons-button></p>
+	   		<p style="color: dark-grey">The application contains a list of possible places to organize tourist trips.</br>
+	   		If you want, you can easily add or remove them.</br>
+	   		In the future, we will increase its functionality with a button that will inform us about your suggestions!</br>
+	   		We will also send you our suggestions so that you have more and more choice</br></br>
+	   		<center><b></b>Have a nice use!</b></center></br></p>
+	   		</br>
+	   		<p style="color: dark-grey">If you want to know more about my inerests, please visit my website!</p>
+	   		<p align="center"; style="margin-top: 30px;">
+			<ons-button onclick="fn.load('planeta.html')" tappable=""><ons-button onclick="showModal()">Visit my website!</ons-button></p>
+       		</br>
+       		<p style="color: dark-grey">If you want to go to the main page, click the buton below: </p>
+       		<p align="center"; style="margin-top: 30px;"><ons-button onclick="fn.load('home.html')">Back to home!</ons-button></p>
        </div>
-   </ons-page>
+       </ons-page>
 </ons-template>
 
-
 <ons-template id="map.html">
-        <ons-page>
-            <ons-toolbar>
-      <div class="left">
-        <ons-toolbar-button onclick="fn.open()">
-          <ons-icon icon="md-menu"></ons-icon>
-        </ons-toolbar-button>
-      </div>
-      <div class="center">
-        Map
-      </div>
-	</ons-toolbar>
-  <div class="mapouter"><div class="gmap_canvas"><iframe width="375" height="580" id="gmap_canvas" src="https://maps.google.com/maps?q=Wadowice&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.embedgooglemap.net/blog/divi-discount-code-elegant-themes-coupon/"></a></div><style>.mapouter{position:relative;text-align:right;height:580px;width:375px;}.gmap_canvas {overflow:hidden;background:none!important;height:580px;width:375px;}</style></div>  
-        
-        </ons-page>
-    </ons-template>
-
-
+	<ons-page>
+    	<ons-toolbar>
+      		<div class="left">
+        		<ons-toolbar-button onclick="fn.open()">
+          			<ons-icon icon="md-menu"></ons-icon>
+        		</ons-toolbar-button>
+      		</div>
+      		<div class="center">
+      	  		Map
+      		</div>
+		</ons-toolbar>
+		<iframe width="375" height="580" src="https://api.mapbox.com/styles/v1/geoinfomat/ck5bg1fu312ry1cmwqzy5ik1p.html?fresh=true&title=view&access_token=pk.eyJ1IjoiZ2VvaW5mb21hdCIsImEiOiJjazU5cnFrYWMxMDlpM25wYWtwdTNuN3B6In0.1K2YgleOple1cR7_faKtjQ#12/49.29541/19.95329" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+	</ons-page>
+</ons-template>
 
 <ons-modal direction="up">
-  <div style="text-align: center">
-    <p>
-      <ons-icon icon="md-spinner" size="28px" spin></ons-icon> Loading...
-    </p>
-  </div>
+	<div style="text-align: center">
+    	<p><ons-icon icon="md-spinner" size="28px" spin></ons-icon> Loading...</p>
+  	</div>
 </ons-modal>
 
-
-<ons-template id="fb.html">
-<ons-page id="facebook">
-  <ons-toolbar>
-    <div class="center">Map of the selected place</div>
-    <p align="center"; style="margin-top: 0px;"><ons-button onclick="fn.load('home.html')">home</ons-button></p>
-
-  </ons-toolbar>
-
-  <ons-card>
-    <div class="mapouter" align="center"><div class="gmap_canvas"><iframe width="330" height="580" id="gmap_canvas" src="https://maps.google.com/maps?q=Zakopane&t=&z=11&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.embedgooglemap.net/blog/divi-discount-code-elegant-themes-coupon/"></a></div><style>.mapouter{position:relative;text-align:right;height:580px;width:330px;}.gmap_canvas {overflow:hidden;background:none!important;height:580px;width:330px;}</style></div>  
-    
-  </ons-card>
-</ons-page>
+<ons-template id="planeta.html">
+	<ons-page id="planeta">
+    	<ons-toolbar>
+    		<div class="center">My site</div>
+    		<p align="center"; style="margin-top: 0px;"><ons-button onclick="fn.load('home.html')">home</ons-button></p>
+		</ons-toolbar>
+		<iframe width="375" height="580" src="http://planeta.bo.pl" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+	</ons-page>
 </ons-template>
 
 <script src="app.js"></script>
