@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pl">
+	<head>
+	    <meta charset="utf-8">
+       	<title>Zakopane - the winter sports capital</title>
+        <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
+    </head>
+    <body>
+        <div id="mapdiv" style="width: 375px; height: 580px;">
+        <h3 align = center>Zakopane - The winter sports capital </h3>
+       	</div>
+ 
+    	<script type="text/javascript">
+    		window.onload = function() {
+      		map = new OpenLayers.Map("mapdiv");
+      		map.addLayer(new OpenLayers.Layer.OSM());
+    		var lonLat = new OpenLayers.LonLat( 19.95329 ,49.29541 )
+       		.transform(
+          		new OpenLayers.Projection("EPSG:4326"),
+          		map.getProjectionObject()
+       		);
+     		map.setCenter (lonLat, 17);
+           	
+    		var vectorLayer = new OpenLayers.Layer.Vector("Overlay");
+    		map.addLayer(vectorLayer);
+    	
+    		var feature = new OpenLayers.Feature.Vector(
+       	 	new OpenLayers.Geometry.Point( 19.95329 ,49.29541  )
+        	.transform(
+            	new OpenLayers.Projection("EPSG:4326"),
+             	map.getProjectionObject()
+        	),
+        	{description:'Zakopane</br>The winter sports capital'} ,
+        		{
+            	externalGraphic: 'http://openlayers.org/api/img/marker.png',
+             	graphicHeight: 25,
+             	graphicWidth: 21,
+             	graphicXOffset:-12,
+             	graphicYOffset:-25
+        		}
+    		);
+    		vectorLayer.addFeatures(feature);
+       
+     		var selector = new OpenLayers.Control.SelectFeature(vectorLayer, {
+       			onSelect: createPopup,
+       			onUnselect: destroyPopup
+    		});
+     		function createPopup(feature) {
+       			feature.popup = new OpenLayers.Popup.FramedCloud("pop",
+            	feature.geometry.getBounds().getCenterLonLat(),
+            	null,
+            	'<div class="markerContent">'+feature.attributes.description+'</div>',
+            	null,
+            	true,
+            	function() { selector.unselectAll(); }
+       			);
+       			//feature.popup.closeOnMove = true;
+       			map.addPopup(feature.popup);
+    		}
+    		function destroyPopup(feature) {
+       		feature.popup.destroy();
+       		feature.popup = null;
+    		}
+        
+     		map.addControl(selector);
+     		selector.activate();
+		};
+    	</script>
+
+	</body>
+</html>
